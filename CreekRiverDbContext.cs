@@ -91,7 +91,7 @@ public class CreekRiverDbContext : DbContext
             new Campsite
             {
                 Id = 5,
-                CampsiteTypeId = 5,
+                CampsiteTypeId = 4,
                 Nickname = "Solitude Fall",
                 ImageUrl="https://res.cloudinary.com/simpleview/image/upload/v1459362023/clients/boston/header_aboutboston_seasons_fall_publicgarden_c6fb1674-26d0-41c0-a160-e2bf87b92f10.jpg"
             },
