@@ -34,7 +34,22 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
+app.MapGet("/api/campsites", (CreekRiverDbContext db) =>
+{
+    return db.Campsites.ToList();
+});
 
+app.MapGet("/api/campsites/{id}", (CreekRiverDbContext db, int id) =>
+{
+    try
+    {
+        return Results.Ok(db.Campsites.Include(c => c.CampsiteType).Single(c => c.Id == id));
+    }
+    catch (InvalidOperationException)
+    {
+        return Results.NotFound("The Campsite entered does not exist!");
+    }
+});
 
 app.Run();
 
